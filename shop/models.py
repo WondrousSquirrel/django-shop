@@ -1,3 +1,4 @@
+import os
 from django.db import models
 from django.urls import reverse
 # Create your models here.
@@ -20,7 +21,7 @@ class Category(models.Model):
         return reverse('shop:product_list_by_category', args=[self.slug])
     
 
-def get_upload_path(isinstance, filename):
+def get_upload_path(instance, filename):
     #  задаем название файла названием slug`а продукта
     filename = instance.slug + '.' + filename.split('.')[1]  
     return os.path.join('images/', filename)
