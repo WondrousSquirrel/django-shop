@@ -12,7 +12,15 @@
               <a class="nav-link" href="#">About</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'cart:cart_detail' %}">Корзина</a>
+                {% with totail_items=cart|length %}
+                {% if cart|length > 0 %}
+                    <a class="nav-link" href="{% url 'cart:cart_detail' %}">
+                      Корзина <span class="badge badge-secondary">{{ totail_items }}</span>
+                    </a>
+                    {% else %}
+                    Your cart is empty.
+                {% endif %}
+            {% endwith %}
               </li>
           </ul>
         </div>
