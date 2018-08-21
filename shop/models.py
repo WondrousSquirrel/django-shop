@@ -19,14 +19,11 @@ class Category(models.Model):
     def get_absolute_url(self):
         return reverse('shop:product_list_by_category', args=[self.slug])
     
-'''
-def get_upload_path(instance, filename):
 
-'''
 def get_upload_path(isinstance, filename):
     #  задаем название файла названием slug`а продукта
     filename = instance.slug + '.' + filename.split('.')[1]  
-    return os.path.join('images/', filename
+    return os.path.join('images/', filename)
 
 
 class Product(models.Model):
