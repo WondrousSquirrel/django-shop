@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     # в доках рекомендутся делать именно так, а не просто 'shop
     'shop.apps.ShopConfig',
     'cart.apps.CartConfig',
+    'orders.apps.OrdersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
