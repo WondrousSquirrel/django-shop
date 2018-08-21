@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+
+      <div class="row">
+        <div class="col-sm-4">
+            <ul class="list-group">
+                    <li class="list-group-item">
+                        <a href="/">Все категории</a>
+                    </li>
+                    <br>
+                {% for category in categories %}
+                    <li class="list-group-item">
+                        <a href="{{ category.get_absolute_url }}">{{ category.name }}</a>
+                    </li>
+                {% endfor %}
+                    
+            </ul>
+
+        </div>
+
+        <div class="col-sm-4">
+            {% for product in products %}
+
+                <div class="card" style="width: 30rem;">
+                    <img class="card-img-top" src="{{product.image.url }}" alt="изображение продукта">
+                    <div class="card-body">
+                        <h5 class="card-title">{{product.title}}</h5>
+                        <p class="card-text">{{product.description | truncatechars:10}}</p>
+                        <a href="{{ product.get_absolute_url }}" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                    <small class='text-muted'>{{product.timestamp}}</small> 
+                    <small class='text-muted'>{{product.category}}</small> 
+                </div>
+                
+            {% endfor %}
+        </div>
+
+        <div class="col-sm-4">
+
+        </div>
+      </div>
+
+
+    </div>
+    
+{% endblock %}

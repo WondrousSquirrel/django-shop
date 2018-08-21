@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+        <div class="row" style="margin-bottom: 5%;">
+            <div class="col-sm-4">
+                    <img src="{{ product.image.url }}" alt="" style="width: 100%">
+            </div>
+            <div class="col-sm-8">
+                <h1>{{ product.title }}</h1>
+                <p>{{ product.description }}</p>
+                <a class="btn btn-outline-info" href="#" role="button">Добавить в корзину</a>
+                <button type="button" value="Previous Page" class="btn btn-outline-warning" onClick="window.history.back();return false;">
+                    Назад
+                </button>
+            </div>
+        </div>
+        
+    <div class="btn-group" role="group" aria-label="...">
+        {% for category in category_list %}
+            <a class="btn btn-outline-secondary" href="{{ category.get_absolute_url }}" role="button" style="margin-left: 10px;">
+                {{ category.name }}
+            </a>
+        {% endfor %}
+    </div>
+</div>
+    
+{% endblock %}
