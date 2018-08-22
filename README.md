@@ -1,4 +1,4 @@
-#django-shop
+# django-shop
 
 Пример интернет магазина с использованием Django
 
