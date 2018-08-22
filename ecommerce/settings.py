@@ -107,6 +107,15 @@ AUTH_PASSWORD_VALIDATORS = [
 ''' bootstrap алерты'''
 from django.contrib.messages import constants as messages
 
+''' используется только во время разработки и не подходит для продекшена,
+записует все письма в файл на сервере.
+EMAIL_FILE_PATH - указывать путь где будут храниться письма
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' - выводит сообщение
+в консоль.
+'''
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_FILE_PATH = 'emails/email-messages/'
+
 MESSAGE_TAGS = {
     messages.DEBUG: 'alert-info',
     messages.INFO: 'alert-info',
