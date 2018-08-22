@@ -18,7 +18,9 @@
                       Корзина <span class="badge badge-secondary">{{ totail_items }}</span>
                     </a>
                     {% else %}
-                    Your cart is empty.
+                    <a class="nav-link" href="{% url 'cart:cart_detail' %}">
+                      Корзина пуста
+                    </a>
                 {% endif %}
             {% endwith %}
               </li>
